@@ -1,0 +1,17 @@
+{
+  "author": "Alex Whitman <alex@alexwhitman.com>",
+  "name": "dobot-module-dns",
+  "description": "DNS commands",
+  "version": "0.0.0",
+  "homepage": "http://dobot.github.com/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dobot/dobot-module-dns.git"
+  },
+  "keywords": ["bot"],
+  "engines": {
+    "node": ">=0.4.x"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
