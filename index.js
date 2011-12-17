@@ -71,7 +71,7 @@ module.exports = function(bot, module) {
 
 function handleError(code) {
 	var reply;
-	switch(err.code) {
+	switch(code) {
 		case 'ETEMPFAIL':
 			reply = 'Timeout containg DNS server.';
 			break;
