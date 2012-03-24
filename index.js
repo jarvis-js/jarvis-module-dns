@@ -65,9 +65,9 @@ module.exports = function(bot, module) {
 			request.reply = ip + ' reverse resolves to ' + domains.join(', ');
 			bot.reply(request);
 		});
-	})
+	});
 
-}
+};
 
 function handleError(code) {
 	var reply;
