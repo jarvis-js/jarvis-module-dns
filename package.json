@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "description": "DNS module for Jarvis",
   "main": "index.js",
-  "dependencies": {
-    "wobot": "~0.8.0"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
