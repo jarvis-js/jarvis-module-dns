@@ -1,17 +1,23 @@
 {
-  "author": "Alex Whitman <alex@alexwhitman.com>",
-  "name": "dobot-module-dns",
-  "description": "DNS commands",
-  "version": "0.0.0",
-  "homepage": "http://dobot.github.com/",
+  "name": "jarvis-module-dns",
+  "version": "0.1.0",
+  "description": "DNS module for Jarvis",
+  "main": "index.js",
+  "dependencies": {
+    "wobot": "~0.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/dobot/dobot-module-dns.git"
+    "url": "git://github.com/jarvis-js/jarvis-module-dns.git"
   },
-  "keywords": ["bot"],
-  "engines": {
-    "node": ">=0.4.x"
-  },
-  "dependencies": {},
-  "devDependencies": {}
+  "keywords": [
+    "Jarvis",
+    "DNS"
+  ],
+  "author": "Alex Whitman <alex@alexwhitman.com>",
+  "license": "BSD"
 }

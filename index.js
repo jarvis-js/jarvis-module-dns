@@ -1,26 +1,24 @@
 var dns = require('dns');
 
-module.exports = function(bot, module) {
+module.exports = function(jarvis, module) {
 
 	var recordTypes = [ 'A', 'AAAA', 'MX', 'TXT', 'PTR', 'NS', 'CNAME' ];
 
-	module.addCommand({
+	module.addAction(module.createCommand({
 		match: /^resolve (?:(.*) record for )?(.*)$/i,
-		func: function(request, type, domain) {
+		func: function(message, type, domain) {
 			if (type === undefined) {
 				type = 'A';
 			}
 			type = type.toUpperCase();
 			if (recordTypes.indexOf(type) === -1) {
-				request.reply = 'Invalid record type. ' + recordTypes.slice(0, -1).join(', ') + ' and ' + recordTypes.slice(-1) + ' available.';
-				bot.reply(request);
+				jarvis.reply(message, 'Invalid record type. ' + recordTypes.slice(0, -1).join(', ') + ' and ' + recordTypes.slice(-1) + ' available.');
 				return;
 			}
 			dns.resolve(domain, type, function(err, addresses) {
 				var reply;
 				if (err) {
-					request.reply = handleError(err.code);
-					bot.reply(request);
+					jarvis.reply(message, handleError(err.code));
 					return;
 				}
 				reply = type + ' record for ' + domain + ' resolves to ';
@@ -52,26 +50,23 @@ module.exports = function(bot, module) {
 						reply += addresses.join(', ');
 						break;
 				}
-				request.reply = reply;
-				bot.reply(request);
+				jarvis.reply(message, reply);
 			});
 		}
-	});
+	}));
 
-	module.addCommand({
+	module.addAction(module.createCommand({
 		match: 'reverse resolve :ip',
-		func: function(request, ip) {
+		func: function(message, ip) {
 			dns.reverse(ip, function(err, domains) {
 				if (err) {
-					request.reply = handleError(err.code);
-					bot.reply(request);
+					jarvis.reply(message, handleError(err.code));
 					return;
 				}
-				request.reply = ip + ' reverse resolves to ' + domains.join(', ');
-				bot.reply(request);
+				jarvis.reply(message, ip + ' reverse resolves to ' + domains.join(', '));
 			});
 		}
-	});
+	}));
 
 };
 
